@@ -1,10 +1,11 @@
 import requests
+import os
 
 
 def upload_to_github_gist(text, gist_name, gh_token):
     # Create the gist content
     gist_content = {
-        "public": os.getenv("PRIVATE_GIST", False),
+        "public": os.getenv("PRIVATE_GIST", "false"),
         "files": {
             f"{gist_name}": {  # Change the file extension to .txt for plain text
                 "content": text
